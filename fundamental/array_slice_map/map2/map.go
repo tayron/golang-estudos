@@ -16,4 +16,8 @@ func main() {
 	for nome, salario := range funcsSalarios {
 		fmt.Println(nome, salario)
 	}
+
+	for _, salario := range funcsSalarios {
+		fmt.Println(salario)
+	}
 }
