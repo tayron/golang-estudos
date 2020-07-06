@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tayron/area"
+	"github.com/tayron/go-lang-estudos/pacotes/area"
 )
 
 func main() {
