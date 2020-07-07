@@ -25,7 +25,7 @@ func titulo(urls ...string) <-chan string {
 	}
 
 	return c
-}3
+}
 
 func main() {
 
