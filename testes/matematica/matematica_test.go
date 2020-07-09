@@ -6,6 +6,12 @@ const erroPadrao = "O valor esperado %v, mas o resultado encontrado foi %v."
 
 // comando "go test" dentro do diretório onde o teste se encontra
 // "go test ./..." na raiz para executar todos os tests
+// Coverage:
+// go test -cover
+// go test -coverprofile=resultado.out
+// go tool cover -func=resultado.out
+// go tool cover -html=resultado.out
+
 func TestMedia(t *testing.T) {
 	t.Parallel() // Teste em paralelo
 	valorEsperado := 7.28
