@@ -8,6 +8,7 @@ import (
 const msgIndex = "%s (part: %s) - índices: esperado (%d) <> encontrado (%d)."
 
 func TestIndex(t *testing.T) {
+	t.Parallel() // Teste em paralelo
 	// Criando um dataset para testar vários cenários
 	// go test -v / Executando testes no modo verboso
 	testes := []struct {
