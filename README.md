@@ -25,3 +25,6 @@ Paralelismo exirge muito mias do SO e do Hardware.
 
 Concorrência - É a forma de estruturar seu programa
 É a composição de processos (tipicamente funções) que executam de forma independente
+
+## Comandos
+Instalar MYSQL DRIVE: ```go get -u github.com/go-sql-driver/mysql```
