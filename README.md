@@ -5,6 +5,7 @@ https://github.com/cod3rcursos/curso-go
 https://go-tour-br.appspot.com/basics/6
 
 https://medium.com/@denis_santos/primeiros-passos-com-golang-c3368f6d707a
+https://gobyexample.com/
 
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
@@ -29,6 +30,7 @@ Concorrência - É a forma de estruturar seu programa
 ## Comandos
 Instalar MYSQL DRIVE: ```go get -u github.com/go-sql-driver/mysql```
 Copilar aplicação para rodar no linux ```GOOS=linux GOARCH=amd64 go build```
+Passando variavel de ambiente ```version=5 go run *.go```
 
 ## Publicar aplicação no servidor de produção
 https://kenyaappexperts.com/blog/how-to-deploy-golang-to-production-step-by-step/
