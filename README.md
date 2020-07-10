@@ -28,3 +28,7 @@ Concorrência - É a forma de estruturar seu programa
 
 ## Comandos
 Instalar MYSQL DRIVE: ```go get -u github.com/go-sql-driver/mysql```
+Copilar aplicação para rodar no linux ```GOOS=linux GOARCH=amd64 go build```
+
+## Publicar aplicação no servidor de produção
+https://kenyaappexperts.com/blog/how-to-deploy-golang-to-production-step-by-step/
