@@ -1,11 +1,10 @@
 # Go
 
 https://github.com/cod3rcursos/curso-go
-
 https://go-tour-br.appspot.com/basics/6
-
 https://medium.com/@denis_santos/primeiros-passos-com-golang-c3368f6d707a
 https://gobyexample.com/
+https://gowebexamples.com/
 
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
