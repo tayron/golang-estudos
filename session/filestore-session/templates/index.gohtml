@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Go Sessions Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Go Session Example</h1>
+    {{if .Authenticated }}
+    <a href="/secret">Welcome back! {{.Username}}</a>
+    {{end}}
+    {{ if not .Authenticated }}
+    <p>Please enter the code to access the information.</p>
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="username">
+        <input type="password" name="code" placeholder="secret code" required>
+        <input type="submit" value="Submit">
+    </form>
+    {{ end }}
+</body>
+</html>
