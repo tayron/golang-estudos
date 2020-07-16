@@ -29,6 +29,8 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	var templates = template.Must(template.ParseGlob("pages/*.html"))
+	template.Must(templates.ParseGlob("pages/layout/*.html"))
+
 	err := templates.ExecuteTemplate(w, "homePage", data)
 
 	if err != nil {
