@@ -28,8 +28,13 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	var tmpl = template.Must(template.ParseFiles("layout.html"))
-	tmpl.Execute(w, data)
+	var templates = template.Must(template.ParseGlob("pages/*.html"))
+	err := templates.ExecuteTemplate(w, "homePage", data)
+
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
 }
 
 func main() {
