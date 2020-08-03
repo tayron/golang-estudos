@@ -1,8 +1,9 @@
 package main
 
 import (
-	"html/template"
 	"net/http"
+
+	"github.com/tayron/go-lang-estudos/html/template/bootstrap"
 )
 
 // Todo -
@@ -11,15 +12,12 @@ type Todo struct {
 	Done  bool
 }
 
-// TodoPageData -
-type TodoPageData struct {
-	PageTitle string
-	Todos     []Todo
-}
-
 // HomeHandler -
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-	data := TodoPageData{
+	parameters := struct {
+		PageTitle string
+		Todos     []Todo
+	}{
 		PageTitle: "My TODO list",
 		Todos: []Todo{
 			{Title: "Task 1", Done: false},
@@ -28,15 +26,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	var templates = template.Must(template.ParseGlob("pages/*.html"))
-	template.Must(templates.ParseGlob("pages/layout/*.html"))
-
-	err := templates.ExecuteTemplate(w, "homePage", data)
-
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
+	bootstrap.LoadView(w, "homePage", parameters)
 }
 
 func main() {
