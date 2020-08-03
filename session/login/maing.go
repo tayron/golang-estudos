@@ -2,10 +2,12 @@ package main
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
+	"github.com/tayron/go-lang-estudos/session/login/session"
 )
 
 var templates *template.Template
@@ -24,50 +26,50 @@ func main() {
 	r.PathPrefix("/static").Handler(http.StripPrefix("/static", fs))
 	http.Handle("/", r)
 
-	http.ListenAndServe(":8080", nil)
+	log.Panic(http.ListenAndServe(":8181", nil))
 }
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
+	username := session.GetSessionData("username", w, r)
+	password := session.GetSessionData("password", w, r)
 
-	session, _ := store.Get(r, "session")
-	username, ok := session.Values["username"]
-	if !ok {
+	if username == "" {
 		http.Redirect(w, r, "/login", 302)
 	}
 
-	templates.ExecuteTemplate(w, "index.html", username)
+	parameters := struct {
+		Username string
+		Password string
+	}{
+		Username: username,
+		Password: password,
+	}
+
+	templates.ExecuteTemplate(w, "index.html", parameters)
 }
 
 func loginGetHandler(w http.ResponseWriter, r *http.Request) {
+	username := session.GetSessionData("username", w, r)
 
-	session, _ := store.Get(r, "session")
-	username, _ := session.Values["username"]
-
-	if username != nil {
+	if username != "" {
 		http.Redirect(w, r, "/", 302)
 	}
 
-	templates.ExecuteTemplate(w, "login.html", username)
-
+	templates.ExecuteTemplate(w, "login.html", nil)
 }
 
 func loginPostHandler(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
-	session, _ := store.Get(r, "session")
-
 	username := r.PostForm.Get("username")
-	session.Values["username"] = username
-
 	password := r.PostForm.Get("password")
-	session.Values["password"] = password
 
-	session.Save(r, w)
+	session.SetSessionData("username", username, w, r)
+	session.SetSessionData("password", password, w, r)
+
 	http.Redirect(w, r, "/", 302)
 }
 
 func logoutGetHandler(w http.ResponseWriter, r *http.Request) {
-	session, _ := store.Get(r, "session")
-	session.Options.MaxAge = -1
-	session.Save(r, w)
+	session.ClearSessionData(w, r)
 	http.Redirect(w, r, "/login", 302)
 }
