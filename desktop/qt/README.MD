@@ -3,9 +3,9 @@
 Programa feito para estudo em GO e QT que permite visualizar valor do pedido e o valor pago pelo cliente.
 Permite alteração do valor pago pelo cliente através da interface gráfica
 
-![Alt text](/imagens/1.png?raw=true "Página inicial do programa")
-![Alt text](/imagens/2.png?raw=true "Página visualização pedido")
-![Alt text](/imagens/3.png?raw=true "Mensagem sucesso ao alterar valor pago")
+![Alt text](./imagens/1.png?raw=true "Página inicial do programa")
+![Alt text](./imagens/2.png?raw=true "Página visualização pedido")
+![Alt text](./imagens/3.png?raw=true "Mensagem sucesso ao alterar valor pago")
 
 ## Para executar (Somente Linux)
 ```./pedido-painel-franqueado``` 
