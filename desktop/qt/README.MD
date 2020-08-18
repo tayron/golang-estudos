@@ -1,4 +1,4 @@
-# Pedido Painel Franqueado
+# Sistema altera valor de pedido
 
 Programa feito para estudo em GO e QT que permite visualizar valor do pedido e o valor pago pelo cliente.
 Permite alteração do valor pago pelo cliente através da interface gráfica
