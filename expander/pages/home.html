@@ -1,0 +1,11 @@
+{{define "title"}}
+    {{.PageTitle}}
+{{end}}  
+
+{{define "content"}}
+<ul>
+    {{- range $produto := .Produtos -}}
+        <li>{{$produto.Nome}} - {{$produto.Preco | currency "DE"}}</li>        
+    {{ end }}
+</ul>
+{{end}}
