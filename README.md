@@ -17,6 +17,8 @@ https://www.codigofluente.com.br/algoritmo-linguagem-de-programacao/go/
 https://gohugo.io/functions/eq/
 https://github.com/jimmykuu/go-echarts
 
+https://www.onlinetool.io/xmltogo/ (Cria struct apartir de um xml)
+
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
 
 Ele é uma das poucas linguagens que surgiu depois dos processadores com múltiplos núcleos e isso fez com que a linguagem tenha mecanismo de concorrência no cerne da linguagem, o que a torna ideal para aplicações na qual são exigidos um alto grau de desempenho.
