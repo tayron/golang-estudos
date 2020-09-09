@@ -1,0 +1,31 @@
+{{define "title"}}
+    {{.PageTitle}}
+{{end}}  
+
+{{define "content"}}
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-responsive table-bordered table-striped table-hovered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Referencia</th>
+                    <th>Cor</th>
+                    <th>Tamanho</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{- range $produto := .Produtos -}}
+                    <tr>
+                        <td>{{$produto.ID}}</td>
+                        <td>{{$produto.Referencia}}</td>
+                        <td>{{$produto.Cor}}</td>
+                        <td>{{$produto.Tamanho}}</td>
+                    </tr>
+                {{ end }}
+            </tbody>
+        </table>
+        {{.Paginacao}}
+    </div>
+</div>
+{{end}}
