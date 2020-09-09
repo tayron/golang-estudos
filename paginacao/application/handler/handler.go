@@ -17,8 +17,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	uri := "/"
 	numeroTotalRegistro := models.ObterNumeroProdutos()
-	queryStringPagina := r.FormValue("pagina")
-	paginaAtual, _ := strconv.Atoi(fmt.Sprintf("%s", queryStringPagina))
+	paginaAtual, _ := strconv.Atoi(fmt.Sprintf("%s", r.FormValue("pagina")))
 
 	htmlPaginacao, offset, err := library.CriarPaginacao(uri, numeroTotalRegistro, paginaAtual)
 
