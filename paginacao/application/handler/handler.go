@@ -12,10 +12,8 @@ import (
 
 // HomeHandler -
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
-
-	uri := "/"
 	numeroTotalRegistro := models.ObterNumeroProdutos()
-	htmlPaginacao, offset, err := library.CriarPaginacao(uri, numeroTotalRegistro, paginaAtual)
+	htmlPaginacao, offset, err := library.CriarPaginacao(numeroTotalRegistro, r)
 
 	var listaProdutos []models.Produto
 
