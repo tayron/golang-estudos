@@ -20,8 +20,13 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	queryStringPagina := r.FormValue("pagina")
 	paginaAtual, _ := strconv.Atoi(fmt.Sprintf("%s", queryStringPagina))
 
-	htmlPaginacao, offset := library.CriarPaginacao(uri, numeroTotalRegistro, paginaAtual)
-	listaProdutos := models.BuscarTodosProdutos(offset)
+	htmlPaginacao, offset, err := library.CriarPaginacao(uri, numeroTotalRegistro, paginaAtual)
+
+	var listaProdutos []models.Produto
+
+	if err == nil {
+		listaProdutos = models.BuscarTodosProdutos(offset)
+	}
 
 	parameters := struct {
 		PageTitle string

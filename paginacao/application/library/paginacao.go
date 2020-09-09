@@ -1,6 +1,7 @@
 package library
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"strconv"
@@ -21,11 +22,11 @@ const estruturaItemMenuSelecionado = "<li class='page-item active'><a class='pag
 const estruturaItemMenuDesabilitado = "<li class='page-item disabled'><a class='page-link' href='%s'>%s</a></li>"
 
 // CriarPaginacao -
-func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlMenu string, offset int) {
+func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlMenu string, offset int, err error) {
 	numeroRegistroPorPagina, _ := strconv.Atoi(os.Getenv("NUMERO_REGISTRO_POR_PAGINA"))
 
 	if numeroTotalRegistro == 0 {
-		return "", 0
+		return "", 0, errors.New("Numero de registro a ser paginado é zero")
 	}
 
 	var link string = "/?pagina="
@@ -48,6 +49,11 @@ func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlM
 	}
 
 	var numeroPaginasParaSeremCriadas int = (paginacao.NumeroTotalRegistro / paginacao.NumeroRegistroPorPagina)
+
+	if paginaAtual > numeroPaginasParaSeremCriadas {
+		return "", 0, errors.New("Página solicitada é maior do que existente")
+	}
+
 	var numeroLinksQuePodeSerCriado int = 10 + paginaAtual
 	var numeroMenuCriado int = paginaAtual
 	var linksCriados string = ""
@@ -91,5 +97,5 @@ func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlM
 	}
 
 	offset = (paginaAtual - 1) * numeroRegistroPorPagina
-	return fmt.Sprintf(estruturaContainerMenu, linksCriados, paginaAtual, numeroRegistroPorPagina, numeroTotalRegistro), offset
+	return fmt.Sprintf(estruturaContainerMenu, linksCriados, paginaAtual, numeroRegistroPorPagina, numeroTotalRegistro), offset, nil
 }
