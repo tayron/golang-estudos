@@ -3,6 +3,7 @@ package library
 import (
 	"errors"
 	"fmt"
+	"net/http"
 	"os"
 	"strconv"
 )
@@ -22,7 +23,7 @@ const estruturaItemMenuSelecionado = "<li class='page-item active'><a class='pag
 const estruturaItemMenuDesabilitado = "<li class='page-item disabled'><a class='page-link' href='%s'>%s</a></li>"
 
 // CriarPaginacao -
-func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlMenu string, offset int, err error) {
+func CriarPaginacao(uri string, numeroTotalRegistro int, r *http.Request) (htmlMenu string, offset int, err error) {
 	numeroRegistroPorPagina, _ := strconv.Atoi(os.Getenv("NUMERO_REGISTRO_POR_PAGINA"))
 
 	if numeroTotalRegistro == 0 {
@@ -34,6 +35,8 @@ func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlM
 	if uri != "/" {
 		link = uri + "/" + "?pagina="
 	}
+
+	paginaAtual, _ := strconv.Atoi(fmt.Sprintf("%s", r.FormValue("pagina")))
 
 	if paginaAtual == 0 {
 		paginaAtual = 1
