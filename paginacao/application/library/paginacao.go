@@ -16,7 +16,7 @@ type Paginacao struct {
 	Link                    string //produtos/listar/pagina=
 }
 
-const estruturaContainerMenu = "<nav><ul class='pagination justify-content-center'>%s</ul></nav>Você está na página %d, exibindo %d de %d registros"
+const estruturaContainerMenu = "<nav><ul class='pagination'>%s</ul></nav>Você está na página %d, exibindo %d de %d registros"
 const estruturaItemMenu = "<li class='page-item'><a class='page-link' href='%s'>%s</a></li>"
 const estruturaItemMenuSelecionado = "<li class='page-item active'><a class='page-link' href='%s'>%s</a></li>"
 const estruturaItemMenuDesabilitado = "<li class='page-item disabled'><a class='page-link' href='%s'>%s</a></li>"
