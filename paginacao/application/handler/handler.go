@@ -16,7 +16,7 @@ import (
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	uri := "/"
-	numeroTotalRegistro := 1000
+	numeroTotalRegistro := models.ObterNumeroProdutos()
 	queryStringPagina := r.FormValue("pagina")
 	paginaAtual, _ := strconv.Atoi(fmt.Sprintf("%s", queryStringPagina))
 

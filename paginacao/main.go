@@ -14,6 +14,9 @@ func init() {
 
 func main() {
 	http.HandleFunc("/", handler.HomeHandler)
+	http.HandleFunc("/favicon.ico", func(w http.ResponseWriter, r *http.Request) {
+
+	})
 	fmt.Println("Servidor startado no endereço: http://127.0.0.1:8181")
 	panic(http.ListenAndServe("127.0.0.1:8181", nil))
 }

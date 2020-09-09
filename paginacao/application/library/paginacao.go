@@ -15,12 +15,18 @@ type Paginacao struct {
 	Link                    string //produtos/listar/pagina=
 }
 
-const estruturaContainerMenu = "<nav><ul class='pagination'>%s</ul></nav>"
-const estruturaItemMenu = "<li class='page-item'><a class='page-link' href='%s'>%d</a></li>"
+const estruturaContainerMenu = "<nav><ul class='pagination justify-content-center'>%s</ul></nav>Você está na página %d, exibindo %d de %d registros"
+const estruturaItemMenu = "<li class='page-item'><a class='page-link' href='%s'>%s</a></li>"
+const estruturaItemMenuSelecionado = "<li class='page-item active'><a class='page-link' href='%s'>%s</a></li>"
+const estruturaItemMenuDesabilitado = "<li class='page-item disabled'><a class='page-link' href='%s'>%s</a></li>"
 
 // CriarPaginacao -
 func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlMenu string, offset int) {
 	numeroRegistroPorPagina, _ := strconv.Atoi(os.Getenv("NUMERO_REGISTRO_POR_PAGINA"))
+
+	if numeroTotalRegistro == 0 {
+		return "", 0
+	}
 
 	var link string = "/?pagina="
 
@@ -42,20 +48,48 @@ func CriarPaginacao(uri string, numeroTotalRegistro int, paginaAtual int) (htmlM
 	}
 
 	var numeroPaginasParaSeremCriadas int = (paginacao.NumeroTotalRegistro / paginacao.NumeroRegistroPorPagina)
-	var numeroMenuCriado int = 0
+	var numeroLinksQuePodeSerCriado int = 10 + paginaAtual
+	var numeroMenuCriado int = paginaAtual
 	var linksCriados string = ""
 
+	linksCriados = fmt.Sprintf(estruturaItemMenuDesabilitado, "", "«")
+
+	if paginaAtual > 1 {
+		link = fmt.Sprintf("%s%d", paginacao.Link, 1)
+		linksCriados = fmt.Sprintf(estruturaItemMenu, link, "Primeiro")
+		link = fmt.Sprintf("%s%d", paginacao.Link, paginaAtual-1)
+		linksCriados += fmt.Sprintf(estruturaItemMenu, link, "«")
+	}
+
 	for true {
-		numeroMenuCriado++
+
+		if numeroMenuCriado > numeroLinksQuePodeSerCriado {
+			break
+		}
 
 		if numeroMenuCriado >= numeroPaginasParaSeremCriadas {
 			break
 		}
 
 		link := fmt.Sprintf("%s%d", paginacao.Link, numeroMenuCriado)
-		linksCriados += fmt.Sprintf(estruturaItemMenu, link, numeroMenuCriado)
+		if paginaAtual == numeroMenuCriado {
+			linksCriados += fmt.Sprintf(estruturaItemMenuSelecionado, link, strconv.Itoa(numeroMenuCriado))
+		} else {
+			linksCriados += fmt.Sprintf(estruturaItemMenu, link, strconv.Itoa(numeroMenuCriado))
+		}
+
+		numeroMenuCriado++
+	}
+
+	if paginaAtual < numeroPaginasParaSeremCriadas {
+		link = fmt.Sprintf("%s%d", paginacao.Link, paginaAtual+1)
+		linksCriados += fmt.Sprintf(estruturaItemMenu, link, "»")
+		link = fmt.Sprintf("%s%d", paginacao.Link, numeroPaginasParaSeremCriadas)
+		linksCriados += fmt.Sprintf(estruturaItemMenu, link, "Último")
+	} else {
+		linksCriados += fmt.Sprintf(estruturaItemMenuDesabilitado, "", "»")
 	}
 
 	offset = (paginaAtual - 1) * numeroRegistroPorPagina
-	return fmt.Sprintf(estruturaContainerMenu, linksCriados), offset
+	return fmt.Sprintf(estruturaContainerMenu, linksCriados, paginaAtual, numeroRegistroPorPagina, numeroTotalRegistro), offset
 }

@@ -45,3 +45,27 @@ func BuscarTodosProdutos(offset int) []Produto {
 
 	return listaProdutos
 }
+
+// ObterNumeroProdutos - Retorna número de produtos
+func ObterNumeroProdutos() int {
+
+	db := database.ObterConexao()
+	defer db.Close()
+
+	var sql string = `SELECT count(0) FROM produtos`
+
+	rows, err := db.Query(sql)
+
+	if err != nil {
+		panic(err)
+	}
+
+	defer rows.Close()
+
+	var numeroProdutos int = 0
+	for rows.Next() {
+		rows.Scan(&numeroProdutos)
+	}
+
+	return numeroProdutos
+}
