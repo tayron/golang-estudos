@@ -40,8 +40,8 @@ func CriarPaginacao(numeroTotalRegistro int, r *http.Request) (htmlMenu string, 
 	linksCriados = fmt.Sprintf(estruturaItemMenuDesabilitado, "", "«")
 
 	if paginaAtual > 1 {
-		linksCriados = fmt.Sprintf(estruturaItemMenu, montarLink(r, paginaAtual-1), "«")
-		linksCriados += fmt.Sprintf(estruturaItemMenu, montarLink(r, 1), "Primeiro")
+		linksCriados = fmt.Sprintf(estruturaItemMenu, montarLink(r, 1), "Primeiro")
+		linksCriados += fmt.Sprintf(estruturaItemMenu, montarLink(r, paginaAtual-1), "«")
 	}
 
 	for true {
