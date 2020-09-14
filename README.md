@@ -1,5 +1,6 @@
 # Go
 
+https://devhints.io/go (Go cheatsheet)
 https://github.com/cod3rcursos/curso-go
 
 https://go-tour-br.appspot.com/basics/6
