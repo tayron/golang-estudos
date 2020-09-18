@@ -38,8 +38,9 @@ func init() {
 
 func main() {
 	router.POST("/login", Login)
-	router.POST("/todo", CreateTodo)
-	router.DELETE("/logout", Logout)
+	router.POST("/todo", TokenAuthMiddleware(), CreateTodo)
+	router.DELETE("/logout", TokenAuthMiddleware(), Logout)
+	router.POST("/token/refresh", Refresh)
 
 	fmt.Printf("Service started at http://127.0.0.1:%s \n", os.Getenv("ACCESS_PORT"))
 	log.Fatal(router.Run(":" + os.Getenv("ACCESS_PORT")))
