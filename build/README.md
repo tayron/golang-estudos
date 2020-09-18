@@ -1,17 +1,17 @@
 # Go build exemples
 
 ## Removing debug information included in the executable
-```go build -ldflags "-w" main.go```
+Use the command:```go build -ldflags "-w" main.go```
 
 ## To reduce even more using -s flag (strip)
-```go build -ldflags "-s -w" main.go```
+Use the command:```go build -ldflags "-s -w" main.go```
 
 # Compressing binary using UPX
 
 ## Install 
-```apt-get install upx```
+Use the command: ```apt-get install upx```
 ## Using
-```upx mai```
+Use the command: ```upx main```
 
 Output
 ```
