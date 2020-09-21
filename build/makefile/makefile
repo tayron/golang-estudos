@@ -6,6 +6,6 @@ compile:
 compress:
 	@upx main
 
-vuil: compile compress
+build: compile compress
 
 .PHONY: compile
