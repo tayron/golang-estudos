@@ -8,6 +8,6 @@ func main() {
 	defer w.Destroy()
 	w.SetTitle("Hospeda App")
 	w.SetSize(1024, 768, webview.HintNone)
-	w.Navigate("https://hospeda.app/admin")
+	w.Navigate("https://hospeda.app")
 	w.Run()
 }
