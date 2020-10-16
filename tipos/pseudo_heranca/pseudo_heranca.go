@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"unsafe"
+)
 
 type carro struct {
 	nome            string
@@ -20,4 +23,8 @@ func main() {
 	f.turboLigado = true
 	fmt.Printf("A ferrari %s está com turbo ligado? %v \n", f.nome, f.turboLigado)
 	fmt.Println(f)
+
+	// extrai só a parte referente ao struct carro
+	bar := *(*carro)(unsafe.Pointer(&f))
+	fmt.Printf("%+v\n", bar)
 }
