@@ -1,0 +1,1 @@
+Referência: https://golangbyexample.com/print-struct-variables-golang/
