@@ -18,9 +18,12 @@ https://meshstudio.io/blog/2017-11-06-serving-html-with-golang/
 https://www.codigofluente.com.br/algoritmo-linguagem-de-programacao/go/
 
 https://gohugo.io/functions/eq/
+
 https://github.com/jimmykuu/go-echarts
 
 https://www.onlinetool.io/xmltogo/ (Cria struct apartir de um xml)
+
+https://dzone.com/articles/try-and-catch-in-golang (Try catch com golang)
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
 
