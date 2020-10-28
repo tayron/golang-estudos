@@ -3,6 +3,7 @@
 https://golangbyexample.com/ (Golang exemple)
 
 https://devhints.io/go (Go cheatsheet)
+
 https://github.com/cod3rcursos/curso-go
 
 https://go-tour-br.appspot.com/basics/6
@@ -51,3 +52,6 @@ Passando variavel de ambiente ```version=5 go run *.go```
 
 ## Publicar aplicação no servidor de produção
 https://kenyaappexperts.com/blog/how-to-deploy-golang-to-production-step-by-step/
+
+## Especificar saída do log com linux
+```go run main.go &>> applications.log```
