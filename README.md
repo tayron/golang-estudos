@@ -26,8 +26,9 @@ https://www.onlinetool.io/xmltogo/ (Cria struct apartir de um xml)
 
 https://dzone.com/articles/try-and-catch-in-golang (Try catch com golang)
 
-
 https://github.com/golang/go/wiki/Mobile
+
+https://evento.avancadev.com.br/
 
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
