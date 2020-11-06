@@ -25,26 +25,19 @@ func ConfigurarRotas() http.Handler {
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 
-		var listaPessoas [][]string = [][]string{}
+		var csvMatrizPessoa [][]string = [][]string{}
+		listaPessoas := obterListaPessoas()
 
-		pessoaA := Pessoa{Nome: "Maria da silva"}
-		pessoaB := Pessoa{Nome: "Pedro Augusto"}
-
-		var pessoaAString []string
-		pessoaAString = append(pessoaAString, pessoaA.Nome)
-		listaPessoas = append(listaPessoas, pessoaAString)
-
-		var pessoaBString []string
-		pessoaBString = append(pessoaBString, pessoaB.Nome)
-		listaPessoas = append(listaPessoas, pessoaBString)
+		for _, pessoa := range listaPessoas {
+			pessoaArrayString := converterArrayString(pessoa)
+			csvMatrizPessoa = append(csvMatrizPessoa, pessoaArrayString)
+		}
 
 		w.Header().Set("Content-Type", "text/csv")
 		w.Header().Set("Content-Disposition", "attachment;filename=clientes.csv")
 
 		wr := csv.NewWriter(w)
-		for _, dado := range listaPessoas {
-			fmt.Println(dado)
-
+		for _, dado := range csvMatrizPessoa {
 			err := wr.Write(dado)
 
 			if err != nil {
@@ -56,8 +49,22 @@ func main() {
 		wr.Flush()
 	})
 
-	// Executar passando a versão como parametro: version=5 go run *.go
 	fmt.Println("http://127.0.0.1:3001")
 	log.Fatalln(http.ListenAndServe("127.0.0.1:3001", nil))
+}
 
+func converterArrayString(pessoa Pessoa) []string {
+	var listaString []string
+	listaString = append(listaString, pessoa.Nome)
+
+	return listaString
+}
+
+func obterListaPessoas() []Pessoa {
+	lista := []Pessoa{}
+
+	lista = append(lista, Pessoa{Nome: "Pedro"})
+	lista = append(lista, Pessoa{Nome: "Maria"})
+
+	return lista
 }
