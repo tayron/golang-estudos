@@ -30,6 +30,8 @@ https://github.com/golang/go/wiki/Mobile
 
 https://evento.avancadev.com.br/
 
+https://talks.golang.org/2012/10things.slide#1
+
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
 
