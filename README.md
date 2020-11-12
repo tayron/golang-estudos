@@ -55,6 +55,11 @@ Instalar MYSQL DRIVE: ```go get -u github.com/go-sql-driver/mysql```
 Copilar aplicação para rodar no linux ```GOOS=linux GOARCH=amd64 go build```
 Passando variavel de ambiente ```version=5 go run *.go```
 
+## Comando de builds
+- Arquitetura Windows de 32bits: ```GOOS=windows GOARCH=386 go build -ldflags "-s -w" -o Programa.exe main.go```
+- Arquitetura Windows de 64bits: ```GOOS=windows GOARCH=amd64 go build -ldflags "-s -w" -o Programa.exe main.go```
+- Arquitetura Linux de 64bits: ```GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o Programa64Bits main.go```
+
 ## Publicar aplicação no servidor de produção
 https://kenyaappexperts.com/blog/how-to-deploy-golang-to-production-step-by-step/
 
