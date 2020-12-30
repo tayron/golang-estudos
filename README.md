@@ -32,6 +32,8 @@ https://evento.avancadev.com.br/
 
 https://talks.golang.org/2012/10things.slide#1
 
+https://flaviocopes.com/tags/go/
+
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
 
