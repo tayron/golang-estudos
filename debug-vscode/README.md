@@ -12,10 +12,10 @@
             "program": "${workspaceFolder}/main.go",
             "env": {
                 "AMBIENTE": "desenvolvimento",
-                "DB_PORTA": 3306,
+                "DB_PORTA": 80,
                 "DB_USUARIO": "root",
-                "DB_SENHA": "yakTLS&70c52",
-                "DB_BANCO": "playontv"
+                "DB_SENHA": "123456",
+                "DB_BANCO": "sistema"
             },
             "args": []
         }
