@@ -40,6 +40,8 @@ https://eltonminetto.dev/post/2021-03-32-curso-go/ (Curso de golang)
 
 https://github.com/mongodb/mongo-go-driver/tree/v1.5.3
 
+https://github.com/go-vgo/robotgo
+
 
 Go é a linguagem desenvolvida pelo Google para resolver problemas da escala que a gigante da tecnologia tem e, sem dúvida, essa linguagem também vai ajudar a turbinar as suas aplicações.
 
@@ -61,17 +63,17 @@ Concorrência - É a forma de estruturar seu programa
 É a composição de processos (tipicamente funções) que executam de forma independente
 
 ## Comandos
-Instalar MYSQL DRIVE: ```go get -u github.com/go-sql-driver/mysql```
-Copilar aplicação para rodar no linux ```GOOS=linux GOARCH=amd64 go build```
-Passando variavel de ambiente ```version=5 go run *.go```
+Instalar MYSQL DRIVE: ```sh go get -u github.com/go-sql-driver/mysql```
+Copilar aplicação para rodar no linux ```sh GOOS=linux GOARCH=amd64 go build```
+Passando variavel de ambiente ```sh version=5 go run *.go```
 
 ## Comando de builds
-- Arquitetura Windows de 32bits: ```GOOS=windows GOARCH=386 go build -ldflags "-s -w" -o Programa.exe main.go```
-- Arquitetura Windows de 64bits: ```GOOS=windows GOARCH=amd64 go build -ldflags "-s -w" -o Programa.exe main.go```
-- Arquitetura Linux de 64bits: ```GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o Programa64Bits main.go```
+- Arquitetura Windows de 32bits: ```sh GOOS=windows GOARCH=386 go build -ldflags "-s -w" -o Programa.exe main.go```
+- Arquitetura Windows de 64bits: ```sh GOOS=windows GOARCH=amd64 go build -ldflags "-s -w" -o Programa.exe main.go```
+- Arquitetura Linux de 64bits: ```sh GOOS=linux GOARCH=amd64 go build -ldflags "-s -w" -o Programa64Bits main.go```
 
 ## Publicar aplicação no servidor de produção
 https://kenyaappexperts.com/blog/how-to-deploy-golang-to-production-step-by-step/
 
 ## Especificar saída do log com linux
-```go run main.go &>> applications.log```
+```sh go run main.go &>> applications.log```
