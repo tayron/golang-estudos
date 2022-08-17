@@ -32,6 +32,7 @@ require (
 	github.com/secsy/goftp v0.0.0-20200609142545-aa2de14babf4
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
+	github.com/streadway/amqp v1.0.0
 	github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7
 	github.com/tayron/goarea v0.0.0-20200706115157-b4d274b8121b
 	github.com/valyala/fasthttp v1.27.0 // indirect
