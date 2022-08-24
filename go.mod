@@ -30,6 +30,7 @@ require (
 	github.com/russross/blackfriday v1.6.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/secsy/goftp v0.0.0-20200609142545-aa2de14babf4
+	github.com/segmentio/kafka-go v0.4.34
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/streadway/amqp v1.0.0
@@ -43,7 +44,7 @@ require (
 	github.com/yudai/golcs v0.0.0-20170316035057-ecda9a501e82 // indirect
 	github.com/yudai/pp v2.0.1+incompatible // indirect
 	github.com/yzhanginwa/webview v0.0.0-20190123072648-16c93bcaeaeb
-	golang.org/x/crypto v0.0.0-20210513164829-c07d793c2f9a
+	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 	gopkg.in/kataras/go-serializer.v0 v0.0.4 // indirect
 	moul.io/http2curl v1.0.0 // indirect
 )
