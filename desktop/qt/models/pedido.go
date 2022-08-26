@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/tayron/go-lang-estudos/desktop/qt/form/database"
+	"github.com/tayron/golang-estudos/desktop/qt/form/database"
 )
 
 type Pedido struct {

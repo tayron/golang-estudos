@@ -4,7 +4,7 @@ import (
 	"errors"
 
 	"github.com/leekchan/accounting"
-	"github.com/tayron/go-lang-estudos/desktop/qt/models"
+	"github.com/tayron/golang-estudos/desktop/qt/models"
 )
 
 const (

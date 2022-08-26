@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/api/jwt
+module github.com/tayron/golang-estudos/api/jwt
 
 go 1.14
 

@@ -4,10 +4,10 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/tayron/go-lang-estudos/paginacao/application/library"
-	"github.com/tayron/go-lang-estudos/paginacao/application/view"
+	"github.com/tayron/golang-estudos/paginacao/application/library"
+	"github.com/tayron/golang-estudos/paginacao/application/view"
 
-	"github.com/tayron/go-lang-estudos/paginacao/application/models"
+	"github.com/tayron/golang-estudos/paginacao/application/models"
 )
 
 // HomeHandler -

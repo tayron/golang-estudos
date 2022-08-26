@@ -1,7 +1,7 @@
 package entidade
 
 import (
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
 )
 
 type Cliente struct {

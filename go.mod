@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos
+module github.com/tayron/golang-estudos
 
 go 1.14
 
@@ -36,7 +36,7 @@ require (
 	github.com/sergi/go-diff v1.2.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/streadway/amqp v1.0.0
-	github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7
+	github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7
 	github.com/tayron/goarea v0.0.0-20200706115157-b4d274b8121b
 	github.com/tayron/golang-estudos/redis/cache v0.0.0-20220826195127-4926e4744e9f
 	github.com/valyala/fasthttp v1.27.0 // indirect

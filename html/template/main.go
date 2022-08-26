@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	"github.com/tayron/go-lang-estudos/html/template/bootstrap"
+	"github.com/tayron/golang-estudos/html/template/bootstrap"
 )
 
 // Todo -

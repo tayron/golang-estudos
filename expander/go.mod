@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/expander
+module github.com/tayron/golang-estudos/expander
 
 go 1.14
 

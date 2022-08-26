@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/desktop/lorca
+module github.com/tayron/golang-estudos/desktop/lorca
 
 go 1.14
 

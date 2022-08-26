@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/modelo"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/modelo"
 )
 
 // GetClientes - Retorna lista de clientes

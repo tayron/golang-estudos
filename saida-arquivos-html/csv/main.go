@@ -7,7 +7,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/handlers"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/handlers"
 )
 
 type Pessoa struct {

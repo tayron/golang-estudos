@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/tayron/go-lang-estudos/html"
+	"github.com/tayron/golang-estudos/html"
 )
 
 func oMaisRapido(url1, url2, url3 string) string {

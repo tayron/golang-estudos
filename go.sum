@@ -216,8 +216,8 @@ github.com/stretchr/testify v1.5.1/go.mod h1:5W2xD1RspED5o8YsWQXVCued0rvSQ+mT+I5
 github.com/stretchr/testify v1.7.1/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/stretchr/testify v1.8.0 h1:pSgiaMZlXftHpm5L7V1+rVB+AZJydKsMxsQBIJw4PKk=
 github.com/stretchr/testify v1.8.0/go.mod h1:yNjHg4UonilssWZ8iaSj1OCr/vHnekPRkoO+kdMU+MU=
-github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7 h1:ROOHon4XepzulO4e4GsfjmIw5CV41DL6kC1fvESgrqk=
-github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7/go.mod h1:IZ7qsYhVQle2YWOO+Mb4iM4f/d8DhTil3dAK2fTgbRo=
+github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7 h1:ROOHon4XepzulO4e4GsfjmIw5CV41DL6kC1fvESgrqk=
+github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7/go.mod h1:IZ7qsYhVQle2YWOO+Mb4iM4f/d8DhTil3dAK2fTgbRo=
 github.com/tayron/goarea v0.0.0-20200706115157-b4d274b8121b h1:0A2vwJFwJzMa37t37EBKKGHp70FH9P5IjlDofy0H7JY=
 github.com/tayron/goarea v0.0.0-20200706115157-b4d274b8121b/go.mod h1:vXf4GU9fz1EuLd/b/sPdA7FoYfXrk6Gr64HjeMjqJ+M=
 github.com/tayron/golang-estudos v0.0.0-20220826194656-bf170c04c86b h1:d8PLZXhHLDupkiFG7os8mOOAysA5zmjhDJplIKDjxv0=

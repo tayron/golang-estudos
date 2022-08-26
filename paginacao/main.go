@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/joho/godotenv"
-	"github.com/tayron/go-lang-estudos/paginacao/application/handler"
+	"github.com/tayron/golang-estudos/paginacao/application/handler"
 )
 
 func init() {

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/tayron/go-lang-estudos/api/rest-digital-ocean/models"
+	"github.com/tayron/golang-estudos/api/rest-digital-ocean/models"
 )
 
 // GetJobs A handler to fetch all the jobs

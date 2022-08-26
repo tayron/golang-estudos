@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/build/makefile
+module github.com/tayron/golang-estudos/build/makefile
 
 go 1.14
 

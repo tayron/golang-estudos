@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"net/http"
 
-	"github.com/tayron/go-lang-estudos/expander/expanders"
+	"github.com/tayron/golang-estudos/expander/expanders"
 )
 
 // Produto -

@@ -6,7 +6,7 @@ import (
 	"strings"
 
 	"github.com/joho/godotenv"
-	"github.com/tayron/go-lang-estudos/desktop/qt/models"
+	"github.com/tayron/golang-estudos/desktop/qt/models"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/therecipe/qt/widgets"

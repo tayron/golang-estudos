@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/live_reload
+module github.com/tayron/golang-estudos/live_reload
 
 go 1.14
 

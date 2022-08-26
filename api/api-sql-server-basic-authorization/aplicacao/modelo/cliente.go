@@ -3,9 +3,9 @@ package modelo
 import (
 	"fmt"
 
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/banco"
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/entidade"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/banco"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/entidade"
 )
 
 // ObterClientePorCPF -

@@ -7,7 +7,7 @@ import (
 
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
-	"github.com/tayron/go-lang-estudos/session/login/session"
+	"github.com/tayron/golang-estudos/session/login/session"
 )
 
 var templates *template.Template

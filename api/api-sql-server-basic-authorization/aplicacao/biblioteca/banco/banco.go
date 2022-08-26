@@ -7,8 +7,8 @@ import (
 	"os"
 
 	// Uso indireto do drive mysql
-	"github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
 	_ "github.com/denisenkom/go-mssqldb"
+	"github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization/aplicacao/biblioteca/util"
 )
 
 // ExecutarQuery - Executa query no banco de dados

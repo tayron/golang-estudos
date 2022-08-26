@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/migrate
+module github.com/tayron/golang-estudos/migrate
 
 go 1.14
 

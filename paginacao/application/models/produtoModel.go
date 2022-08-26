@@ -3,7 +3,7 @@ package models
 import (
 	"os"
 
-	"github.com/tayron/go-lang-estudos/paginacao/application/database"
+	"github.com/tayron/golang-estudos/paginacao/application/database"
 )
 
 type Produto struct {

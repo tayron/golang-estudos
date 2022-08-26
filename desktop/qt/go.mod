@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/desktop/qt
+module github.com/tayron/golang-estudos/desktop/qt
 
 go 1.14
 

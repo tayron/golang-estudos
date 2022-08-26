@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	"github.com/go-chi/chi"
-	"github.com/tayron/go-lang-estudos/api/rest-digital-ocean/handlers"
+	"github.com/tayron/golang-estudos/api/rest-digital-ocean/handlers"
 )
 
 func main() {

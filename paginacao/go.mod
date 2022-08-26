@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/paginacao
+module github.com/tayron/golang-estudos/paginacao
 
 go 1.14
 

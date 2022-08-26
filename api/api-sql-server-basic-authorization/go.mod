@@ -1,4 +1,4 @@
-module github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization
+module github.com/tayron/golang-estudos/api/api-sql-server-basic-authorization
 
 go 1.14
 
