@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/tayron/go-lang-estudos/redis/cache/redis"
+	"github.com/tayron/golang-estudos/redis/cache/redis"
 )
 
 func main() {
