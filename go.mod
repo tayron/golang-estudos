@@ -4,9 +4,11 @@ go 1.14
 
 require (
 	fyne.io/fyne v1.4.3
+	github.com/BurntSushi/toml v1.2.0 // indirect
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/cespare/reflex v0.3.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
+	github.com/garyburd/redigo v1.6.3
 	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
 	github.com/go-chi/chi v4.1.2+incompatible
 	github.com/go-sql-driver/mysql v1.5.0
@@ -27,6 +29,7 @@ require (
 	github.com/microcosm-cc/bluemonday v1.0.14 // indirect
 	github.com/onsi/ginkgo v1.16.4 // indirect
 	github.com/onsi/gomega v1.13.0 // indirect
+	github.com/programadriano/go-restapi v0.0.0-20180908024225-2a481ceb5992
 	github.com/russross/blackfriday v1.6.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/secsy/goftp v0.0.0-20200609142545-aa2de14babf4
@@ -46,5 +49,6 @@ require (
 	github.com/yzhanginwa/webview v0.0.0-20190123072648-16c93bcaeaeb
 	golang.org/x/crypto v0.0.0-20220622213112-05595931fe9d
 	gopkg.in/kataras/go-serializer.v0 v0.0.4 // indirect
+	gopkg.in/mgo.v2 v2.0.0-20190816093944-a6b53ec6cb22 // indirect
 	moul.io/http2curl v1.0.0 // indirect
 )

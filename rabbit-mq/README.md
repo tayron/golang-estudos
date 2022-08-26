@@ -10,7 +10,7 @@ docker-composer up --build -d
 ```
 
 ## Acessando Rabbit MQ pelo navegador
-Acesse usando IP do container na porta 15672, exemplo: ```http://172.19.0.2:15672/``` ou ```http://localhost:15672```
+Acesse usando IP do container na porta 15672, exemplo: ```http://localhost:15672```
 
 As credenciais para acessar são:
 
