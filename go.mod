@@ -8,9 +8,10 @@ require (
 	github.com/ajg/form v1.5.1 // indirect
 	github.com/cespare/reflex v0.3.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
-	github.com/garyburd/redigo v1.6.3
+	github.com/garyburd/redigo v1.6.3 // indirect
 	github.com/gavv/monotime v0.0.0-20190418164738-30dba4353424 // indirect
 	github.com/go-chi/chi v4.1.2+incompatible
+	github.com/go-redis/redis v6.15.9+incompatible
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/go-vgo/robotgo v0.94.1
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -27,9 +28,7 @@ require (
 	github.com/kataras/go-sessions v3.0.0+incompatible
 	github.com/mattn/go-colorable v0.1.8 // indirect
 	github.com/microcosm-cc/bluemonday v1.0.14 // indirect
-	github.com/onsi/ginkgo v1.16.4 // indirect
-	github.com/onsi/gomega v1.13.0 // indirect
-	github.com/programadriano/go-restapi v0.0.0-20180908024225-2a481ceb5992
+	github.com/programadriano/go-restapi v0.0.0-20180908024225-2a481ceb5992 // indirect
 	github.com/russross/blackfriday v1.6.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/secsy/goftp v0.0.0-20200609142545-aa2de14babf4
@@ -39,6 +38,7 @@ require (
 	github.com/streadway/amqp v1.0.0
 	github.com/tayron/go-lang-estudos/api/api-sql-server-basic-authorization v0.0.0-20201106194204-627dcf9302a7
 	github.com/tayron/goarea v0.0.0-20200706115157-b4d274b8121b
+	github.com/tayron/golang-estudos/redis/cache v0.0.0-20220826195127-4926e4744e9f
 	github.com/valyala/fasthttp v1.27.0 // indirect
 	github.com/webview/webview v0.0.0-20210330151455-f540d88dde4e
 	github.com/xeipuuv/gojsonschema v1.2.0 // indirect
