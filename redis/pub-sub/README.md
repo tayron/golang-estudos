@@ -1,4 +1,4 @@
-# Uso de mensagem com Redis (Pub e Sub)
+# Uso de publish e subscriber com Redis
 
 [Referencia do código de exempĺo usado](https://github.com/dabfleming/go-redis-pubsub-example)
 
