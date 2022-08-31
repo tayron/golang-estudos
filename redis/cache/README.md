@@ -4,7 +4,7 @@
 
 ## Subindo container Docker com Redis
 ```sh
-docker
+docker-compose up --build -d
 ```
 
 ## Acessando Rabbit MQ pelo navegador
