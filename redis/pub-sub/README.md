@@ -23,7 +23,17 @@ As credenciais para acessar são:
 
 O retorno deverá ser semelhante a:
 ```sh
-PONG <nil>
-Tayron Miranda <nil>
+2022/08/31 18:28:13 Subscription Message: subscribe to channel 'food'. 1 total subscriptions.
+2022/08/31 18:28:13 Subscriptions done. Publishing...
+2022/08/31 18:28:13 Subscription Message: subscribe to channel 'cars'. 1 total subscriptions.
+2022/08/31 18:28:13 Eating a Pizza.
+2022/08/31 18:28:13 Eating a Big Mac.
+2022/08/31 18:28:13 Driving a Subaru.
+2022/08/31 18:28:13 Publishing done. Sleeping...
+2022/08/31 18:28:13 Driving a Tesla.
+2022/08/31 18:28:14 Error in ReceiveTimeout()read tcp 127.0.0.1:57526->127.0.0.1:6379: i/o timeout
+2022/08/31 18:28:14 Error in ReceiveTimeout()read tcp 127.0.0.1:57522->127.0.0.1:6379: i/o timeout
+2022/08/31 18:28:14 Unmarshal error: unexpected end of JSON input
+2022/08/31 18:28:14 Driving a .
 
 ```
