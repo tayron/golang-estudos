@@ -47,7 +47,8 @@ Topic: processar-despesa        TopicId: 4VZRSkjfTwibTWYzd28Fpw PartitionCount: 
 ```
 
 # Criando cliente
-A implementação foi criado com base neste vídeo [https://www.youtube.com/watch?v=P-VHtR_GkgM] (https://www.youtube.com/watch?v=P-VHtR_GkgM)
+A implementação foi criado com base neste vídeo [https://www.youtube.com/watch?v=P-VHtR_GkgM](https://www.youtube.com/watch?v=P-VHtR_GkgM)
+
 Repositório do projeto criado no vídeo acima: [https://github.com/hyperyuri/kafka-with-go](https://github.com/hyperyuri/kafka-with-go)
 
 ## Enviando e recebendo mensagem
