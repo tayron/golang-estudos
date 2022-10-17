@@ -8,7 +8,7 @@ O Apache Kafka(chamado só Kafka neste post) é uma plataforma de streaming dist
 o Apache Zookeeper é um serviço centralizado para manter informações de configurações e nomenclaturas entre serviços distribuídos. O Kafka utiliza o Zookeeper para sincronizar as configurações entre diferentes clusters.
 [https://medium.com/trainingcenter/apache-kafka-codifica%C3%A7%C3%A3o-na-pratica-9c6a4142a08f](https://medium.com/trainingcenter/apache-kafka-codifica%C3%A7%C3%A3o-na-pratica-9c6a4142a08f)
 
-## O que é Apache Kafka
+## Startando Apache Kafka e Zookeeper
 
 ## Iniciando kafka usando docker-compose
 ```sh
