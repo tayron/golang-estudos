@@ -22,3 +22,12 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.28
 ```sh
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 ```
+
+Atualizando patch
+```sh
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
+## Criando entidades golang definida no diretorio /propo
+```sh
+protoc --go_out=. --go-grpc_out=. proto/course_category.proto
+```
