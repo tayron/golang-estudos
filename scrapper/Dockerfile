@@ -5,9 +5,7 @@ RUN apt-get upgrade -y
 RUN apt-get install chromium -y
 
 WORKDIR /app
-COPY . /app
+COPY scrapper /app
 RUN chmod +x scrapper
 
-RUN rm -rf /var/cache/apk/*
-RUN rm -rf /tmp/*
-RUN rm -rf /var/log/*
+RUN rm -rf /var/lib/{apt,dpkg,cache,log}/ /tmp/* /var/tmp/*
