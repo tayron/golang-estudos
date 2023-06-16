@@ -1,4 +1,4 @@
-module github.com/tayron/golang-scrapper
+module github.com/tayron/scrapper/scrapper-rod
 
 go 1.19
 
