@@ -1,5 +1,6 @@
 
-# Web Scraping
+# Scrapper com Chromedp 
+
 Tutorial: https://crg.eti.br/post/web-scraping-com-golang/
 Documentação: Exemplos de scripts: https://github.com/chromedp
 Exemplos de scripts: https://github.com/chromedp/examples
