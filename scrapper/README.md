@@ -1,5 +1,7 @@
 # Scrapper utilizando biblioteca Go Rod
-Exemplo de scrapper que acessa o site [www.hospeda.app](https://www.hospeda.app) e exibe o html da página no terminal utilizando a bilioteca [go-rod]( https://github.com/go-rod/rod).
+Scrapper é uma técnica de programação que automatiza a extração de dados de websites de forma estruturada.
+
+Este exemplo acessa o site [www.hospeda.app](https://www.hospeda.app) e exibe o html da página no terminal utilizando a bilioteca [go-rod]( https://github.com/go-rod/rod).
 
 
 ## Configuração
@@ -43,7 +45,7 @@ Para excluir a imagem gerada execute:
 make remove-image
 ```
 
-### Para obter o tamanho da imagem
+## Para obter o tamanho da imagem
 Para obter o tamanho da imagem gerada execute:
 ```sh
 make get-size-image
