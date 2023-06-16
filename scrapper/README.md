@@ -27,7 +27,7 @@ make build-image
 ## Executando imagem gerada
 Execute o comando abaixo para subir o container e acessar o terminal da imagem gerada:
 ```sh
-run-image
+make run-image
 ```
 
 Dentro do container execute o comando para rodar o scrapper:
