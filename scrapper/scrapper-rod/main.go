@@ -11,7 +11,7 @@ import (
 func main() {
 	fmt.Println("Testando scrapper com GO-Rod")
 
-	browser, page := openPage("https://www.hospeda.app", true, 10)
+	browser, page := openPage("https://www.hospeda.app", false, 10)
 	defer browser.MustClose()
 
 	html := page.MustHTML()
@@ -20,7 +20,7 @@ func main() {
 
 func openPage(url string, headless bool, timeout int) (*rod.Browser, *rod.Page) {
 	browser := rod.New().ControlURL(
-		launcher.New().Headless(true).MustLaunch(),
+		launcher.New().Headless(headless).MustLaunch(),
 	).Timeout(time.Second * time.Duration(timeout)).MustConnect()
 
 	page := browser.MustPage(url)
