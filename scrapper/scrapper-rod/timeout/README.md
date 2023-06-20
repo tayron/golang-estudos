@@ -10,8 +10,8 @@ O exemplo de como controlar o timeout foi retirado da documentação oficial sob
 go run *.go
 ```
 
-O retorno deverá ser
+Em caso de timout o retorno deverá ser:
 ```sh
-timeout error
+Página https://www.hospeda.app demorou mais que 0 segundos para abrir
 ```
 

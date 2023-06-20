@@ -10,15 +10,22 @@ import (
 )
 
 func main() {
+	const TIMEOUT = 0
+	const PAGINA = "https://www.hospeda.app"
+
 	page := rod.New().MustConnect().MustPage()
+	var html string
 
 	err := rod.Try(func() {
-		page.Timeout(0 * time.Second).MustNavigate("https://www.hospeda.app")
-		fmt.Println(page.MustHTML())
+		page.Timeout(TIMEOUT * time.Second).MustNavigate(PAGINA)
+		html = page.MustHTML()
 	})
+
 	if errors.Is(err, context.DeadlineExceeded) {
-		fmt.Println("timeout error")
+		html = fmt.Sprintf("Página %s demorou mais que %d segundos para abrir \n", PAGINA, TIMEOUT)
 	} else if err != nil {
-		fmt.Println("other types of error")
+		html = fmt.Sprintf("Erro desconhecido: %s \n", err.Error())
 	}
+
+	fmt.Println(html)
 }
