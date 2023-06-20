@@ -1,4 +1,4 @@
-module github.com/tayron/scrapper/scrapper-rod
+module github.com/tayron/scrapper/scrapper-rod/get-html-page
 
 go 1.19
 
