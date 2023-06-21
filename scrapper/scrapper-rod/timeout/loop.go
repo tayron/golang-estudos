@@ -15,11 +15,12 @@ func main() {
 
 	timeout := 0
 	i := 0
-	for {
 
+	for {
+		html := ""
 		i++
 		err := rod.Try(func() {
-			getPageHTML(PAGINA, timeout)
+			html = getPageHTML(PAGINA, timeout)
 		})
 
 		if errors.Is(err, context.DeadlineExceeded) {
@@ -32,7 +33,10 @@ func main() {
 			continue
 		}
 
-		fmt.Printf("OK: %d \n", i)
+		if html != "" {
+			fmt.Printf("OK: %d \n", i)
+		}
+
 		timeout = 0
 	}
 
