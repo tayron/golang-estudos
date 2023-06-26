@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	http.HandlerFunc("/hello-world", method.HelloWorld)
-	http.HandlerFunc("/hello", method.HelloYou)
-	http.HandlerFunc("/upload", method.Upload)
+	http.HandleFunc("/hello-world", method.HelloWorld)
+	http.HandleFunc("/hello", method.HelloYou)
+	http.HandleFunc("/upload", method.Upload)
 
-	http.ListenAndServe(":80", nil)
+	http.ListenAndServe(":81", nil)
 }
