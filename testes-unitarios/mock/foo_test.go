@@ -2,7 +2,7 @@ package mock
 
 import (
 	"github.com/golang/mock/gomock"
-	"github.com/tayron/golang-estudos/tree/master/testes-unitarios/mocks"
+	"github.com/tayron/golang-estudos/testes-unitarios/mock/mocks"
 	"testing"
 )
 
