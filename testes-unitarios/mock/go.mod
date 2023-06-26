@@ -1,4 +1,4 @@
-module github.com/tayron/golang-estudos/tree/master/testes-unitarios/mock
+module github.com/tayron/golang-estudos/testes-unitarios/mock/mock
 
 go 1.19
 
