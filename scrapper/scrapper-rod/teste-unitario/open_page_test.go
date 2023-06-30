@@ -20,9 +20,7 @@ func TestOpenPage(t *testing.T) {
 
 	htmlContent := `<html><body><h1 id=\"title\">Hello, World!</h1></body></html>`
 	page.MustEval(fmt.Sprintf(`function() { document.write("%s") }`, htmlContent))
-	page.MustScreenshot("mocked_page.png")
 
-	const MENSAGEM_ERRO = "O valor esperado %s, mas o resultado encontrado foi %s."
 	valorEsperado := "<h1 id=\"title\">Hello, World!</h1>"
 	valorEncontrado, errGetElement := page.Element("#title")
 
@@ -31,7 +29,8 @@ func TestOpenPage(t *testing.T) {
 	}
 
 	if valorEncontrado.MustHTML() != valorEsperado {
-		t.Errorf(MENSAGEM_ERRO, valorEsperado, valorEncontrado.MustHTML())
+		mensagem := "O valor esperado %s, mas o resultado encontrado foi %s."
+		t.Errorf(mensagem, valorEsperado, valorEncontrado.MustHTML())
 	}
 }
 
