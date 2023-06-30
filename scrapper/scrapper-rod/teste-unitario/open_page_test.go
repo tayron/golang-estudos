@@ -34,11 +34,57 @@ func TestOpenPage(t *testing.T) {
 	}
 }
 
+func TestOpenPageWithTimeout(t *testing.T) {
+	urlSite := "https://www.linkedin.com.br/"
+	timeoutAtSeconds := 1
+
+	errTimeout := rod.Try(func() {
+		browser, page, errorOpenPage := OpenPage(urlSite, true, timeoutAtSeconds)
+		defer browser.MustClose()
+
+		if errorOpenPage == nil {
+			t.Errorf("Site deveria ter dado timeout em %d segundos", timeoutAtSeconds)
+		}
+
+		if page.MustElement("title").MustHTML() == "<title>LinkedIn Brasil: entre ou cadastre-se</title>" {
+			t.Errorf("O site não deveria ter sido aberto em %d segundos", timeoutAtSeconds)
+		}
+	})
+
+	if errTimeout == nil {
+		t.Error("Timout não aconteceu")
+	}
+}
+
+func TestOpenPageWithoutTimeout(t *testing.T) {
+	urlSite := "https://www.linkedin.com.br/"
+	timeoutAtSeconds := 15
+
+	errTimeout := rod.Try(func() {
+		browser, page, errorOpenPage := OpenPage(urlSite, true, timeoutAtSeconds)
+		defer browser.MustClose()
+
+		if errorOpenPage != nil && errorOpenPage.Error() == fmt.Sprintf("não foi possível abrir a pagina: %s", urlSite) {
+			t.Error(errorOpenPage.Error())
+		}
+
+		if page.MustElement("title").MustHTML() != "<title>LinkedIn Brasil: entre ou cadastre-se</title>" {
+			t.Errorf("Não foi possível abrir o site do linkedin em %d segundos", timeoutAtSeconds)
+		}
+	})
+
+	if errTimeout != nil {
+		t.Error("Aconteceu timeout, sendo que não deveria ter ocorrido")
+	}
+}
+
 func OpenPage(url string, headless bool, timeout int) (*rod.Browser, *rod.Page, error) {
 	brownserConfig := launcher.New().Headless(headless).MustLaunch()
 	browser := rod.New()
 	browser = browser.ControlURL(brownserConfig)
-	browser = browser.Timeout(time.Second * time.Duration(timeout))
+	if (timeout) > 0 {
+		browser = browser.Timeout(time.Second * time.Duration(timeout))
+	}
 	browser = browser.MustConnect()
 
 	opt := proto.TargetCreateTarget{
@@ -47,8 +93,7 @@ func OpenPage(url string, headless bool, timeout int) (*rod.Browser, *rod.Page, 
 
 	page, err := browser.Page(opt)
 	if err != nil {
-		fmt.Printf("Não foi possível abrir a página inicial. err[%v] \n ", err)
-		return browser, page, err
+		return browser, page, fmt.Errorf("não foi possível abrir a pagina: %s", url)
 	}
 
 	page.MustWindowMaximize()
