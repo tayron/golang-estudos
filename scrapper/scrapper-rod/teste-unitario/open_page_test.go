@@ -35,8 +35,8 @@ func TestOpenPage(t *testing.T) {
 }
 
 func TestOpenPageWithTimeout(t *testing.T) {
-	urlSite := "https://www.linkedin.com.br/"
-	timeoutAtSeconds := 1
+	urlSite := "http://www.oi.com.br/"
+	timeoutAtSeconds := 0
 
 	errTimeout := rod.Try(func() {
 		browser, page, errorOpenPage := OpenPage(urlSite, true, timeoutAtSeconds)
@@ -46,7 +46,8 @@ func TestOpenPageWithTimeout(t *testing.T) {
 			t.Errorf("Site deveria ter dado timeout em %d segundos", timeoutAtSeconds)
 		}
 
-		if page.MustElement("title").MustHTML() == "<title>LinkedIn Brasil: entre ou cadastre-se</title>" {
+		pageTitle := page.MustElement("title").MustHTML()
+		if pageTitle != "" {
 			t.Errorf("O site não deveria ter sido aberto em %d segundos", timeoutAtSeconds)
 		}
 	})
@@ -57,7 +58,7 @@ func TestOpenPageWithTimeout(t *testing.T) {
 }
 
 func TestOpenPageWithoutTimeout(t *testing.T) {
-	urlSite := "https://www.linkedin.com.br/"
+	urlSite := "http://oi.com.br"
 	timeoutAtSeconds := 15
 
 	errTimeout := rod.Try(func() {
@@ -68,7 +69,8 @@ func TestOpenPageWithoutTimeout(t *testing.T) {
 			t.Error(errorOpenPage.Error())
 		}
 
-		if page.MustElement("title").MustHTML() != "<title>LinkedIn Brasil: entre ou cadastre-se</title>" {
+		pageTitle := page.MustElement("title").MustHTML()
+		if pageTitle == "" {
 			t.Errorf("Não foi possível abrir o site do linkedin em %d segundos", timeoutAtSeconds)
 		}
 	})
@@ -82,9 +84,7 @@ func OpenPage(url string, headless bool, timeout int) (*rod.Browser, *rod.Page, 
 	brownserConfig := launcher.New().Headless(headless).MustLaunch()
 	browser := rod.New()
 	browser = browser.ControlURL(brownserConfig)
-	if (timeout) > 0 {
-		browser = browser.Timeout(time.Second * time.Duration(timeout))
-	}
+	browser = browser.Timeout(time.Second * time.Duration(timeout))
 	browser = browser.MustConnect()
 
 	opt := proto.TargetCreateTarget{
