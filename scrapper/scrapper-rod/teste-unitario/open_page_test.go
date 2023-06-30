@@ -11,7 +11,7 @@ import (
 )
 
 func TestOpenPage(t *testing.T) {
-	browser, page, err := OpenPage("", false, 50)
+	browser, page, err := OpenPage("", true, 50)
 	defer browser.MustClose()
 
 	if err != nil {
@@ -55,8 +55,4 @@ func OpenPage(url string, headless bool, timeout int) (*rod.Browser, *rod.Page, 
 	page.MustWindowMaximize()
 
 	return browser, page, err
-}
-
-func WaitLoadBySecond(second time.Duration) {
-	time.Sleep(second * time.Second)
 }
