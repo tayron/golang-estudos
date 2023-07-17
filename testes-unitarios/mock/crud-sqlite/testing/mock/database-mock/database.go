@@ -1,8 +1,8 @@
 package databasemock
 
 import (
-	"example.com/mock/crud-sqlite/interface/database"
-	"exemple.com/crud-sqlite/entity"
+	"github.com/tayron/golang-estudos/testes-unitarios/mock/crud-sqlite/entity"
+	"github.com/tayron/golang-estudos/testes-unitarios/mock/crud-sqlite/interface/database"
 )
 
 type DatabaseMock struct {

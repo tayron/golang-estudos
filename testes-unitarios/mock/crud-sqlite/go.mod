@@ -1,3 +1,3 @@
-module example.com/mock/crud-sqlite
+module github.com/tayron/golang-estudos
 
 go 1.19

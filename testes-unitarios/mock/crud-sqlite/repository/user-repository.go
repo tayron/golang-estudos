@@ -1,8 +1,8 @@
 package repository
 
 import (
-	"example.com/mock/crud-sqlite/entity"
-	"example.com/mock/crud-sqlite/interface/database"
+	"github.com/tayron/golang-estudos/testes-unitarios/mock/crud-sqlite/entity"
+	"github.com/tayron/golang-estudos/testes-unitarios/mock/crud-sqlite/interface/database"
 )
 
 func CreateUser(db database.Database, name string, age int) (int64, error) {

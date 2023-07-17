@@ -1,7 +1,7 @@
 package main
 
 import (
-	"example.com/mock/crud-sqlite/repository"
+	"github.com/tayron/golang-estudos/testes-unitarios/mock/crud-sqlite/repository"
 
 	"github.com/chromedp/cdproto/database"
 )
