@@ -23,6 +23,14 @@ require (
 )
 
 require (
+	github.com/ysmood/fetchup v0.2.3 // indirect
+	github.com/ysmood/goob v0.4.0 // indirect
+	github.com/ysmood/got v0.34.1 // indirect
+	github.com/ysmood/gson v0.7.3 // indirect
+	github.com/ysmood/leakless v0.8.0 // indirect
+)
+
+require (
 	github.com/StackExchange/wmi v1.2.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
@@ -30,6 +38,7 @@ require (
 	github.com/go-gl/gl v0.0.0-20190320180904-bf2b1f2f34d7 // indirect
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20200625191551-73d3c3675aa3 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
+	github.com/go-rod/rod v0.114.6
 	github.com/godbus/dbus/v5 v5.0.3 // indirect
 	github.com/goki/freetype v0.0.0-20181231101311-fa8a33aabaff // indirect
 	github.com/golang-sql/civil v0.0.0-20190719163853-cb61b32ac6fe // indirect
