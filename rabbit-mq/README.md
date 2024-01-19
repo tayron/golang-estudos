@@ -34,7 +34,7 @@ Não feche o terminal, deixe ele aberto de lado e abra um novo terminal para faz
 ## Publicando mensagem
 Para publicar mensagem utilize o comando:
 ```sh
-go run sendMessage.go
+go run producer.go
 ```
 
 O comando acima irá perguntar qual mensagem enviar

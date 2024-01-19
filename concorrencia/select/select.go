@@ -2,15 +2,35 @@ package main
 
 import (
 	"fmt"
+	"net/http"
+	"regexp"
 	"time"
-
-	"github.com/tayron/golang-estudos/html"
 )
 
+func Titulo(url string, titulo chan<- string) {
+	resp, err := http.Get(url)
+	if err != nil {
+		return
+	}
+	defer resp.Body.Close()
+
+	re := regexp.MustCompile(`(?i)<title>\s*(.*?)\s*</title>`)
+	body := make([]byte, 1024)
+	resp.Body.Read(body)
+	match := re.FindSubmatch(body)
+
+	if len(match) > 1 {
+		titulo <- string(match[1])
+	}
+}
+
 func oMaisRapido(url1, url2, url3 string) string {
-	c1 := html.Titulo(url1)
-	c2 := html.Titulo(url2)
-	c3 := html.Titulo(url3)
+	c1 := make(chan string)
+	c2 := make(chan string)
+	c3 := make(chan string)
+	go Titulo(url1, c1)
+	go Titulo(url2, c2)
+	go Titulo(url3, c3)
 
 	// estrutura de controle específica para concorrencia
 	select {
