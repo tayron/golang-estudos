@@ -37,6 +37,7 @@ require (
 	github.com/golang-sql/sqlexp v0.1.0 // indirect
 	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/lxn/win v0.0.0-20210218163916-a377121e959e // indirect
+	github.com/mattn/go-sqlite3 v1.14.24 // indirect
 	github.com/otiai10/gosseract v2.2.1+incompatible // indirect
 	github.com/pierrec/lz4/v4 v4.1.15 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
