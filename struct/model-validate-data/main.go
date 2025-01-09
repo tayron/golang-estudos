@@ -1,78 +1,77 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"time"
+	"strings"
 
+	"github.com/go-playground/locales/pt"
+	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
+	pt_translations "github.com/go-playground/validator/v10/translations/pt"
 )
 
-// Modelo de dados do usuário com validações
-type User struct {
-	FullName        string `json:"full_name" validate:"required"`                         // Nome completo (obrigatório)
-	Email           string `json:"email" validate:"required,email"`                       // Email (obrigatório e formato válido)
-	Password        string `json:"password" validate:"required,min=6"`                    // Senha (obrigatória, mínimo de 6 caracteres)
-	ConfirmPassword string `json:"confirm_password" validate:"required,eqfield=Password"` // Confirmar senha (obrigatório, igual à senha)
-	CreatedAt       int64  `json:"created_at"`                                            // Data de criação do usuário
-	UpdatedAt       int64  `json:"updated_at"`                                            // Data de atualização do usuário
+type RequestData struct {
+	CnpjAdministradora string  `json:"cnpj_administradora" validate:"required,len=14,numeric"`
+	CnpjRemetente      string  `json:"cnpj_remetente" validate:"required,len=14,numeric"`
+	CnpjFornecedor     string  `json:"cnpj_fornecedor" validate:"required,len=14,numeric"`
+	CnpjCondominio     string  `json:"cnpj_condominio" validate:"required,len=14,numeric"`
+	TipoInscrCondo     string  `json:"tipo_inscr_condo" validate:"required,oneof=J F"`
+	TipoInscrFornec    string  `json:"tipo_inscr_fornec" validate:"required,oneof=J F"`
+	Ano                int     `json:"ano" validate:"required,min=1900,max=2100"`
+	Mes                int     `json:"mes" validate:"required,min=1,max=12"`
+	RazaoSocial        string  `json:"razao_social" validate:"required,max=100"`
+	Produto            string  `json:"produto" validate:"required,max=100"`
+	Valor              float64 `json:"valor" validate:"required,gt=0"`
+	Vencimento         string  `json:"vencimento" validate:"required,datetime=01/02/2006"`
 }
 
-// Função para criar mensagens de erro personalizadas
-func getErrorMessages(err validator.ValidationErrors) map[string]string {
-	// Mapeamento para mensagens de erro personalizadas
-	messages := map[string]string{}
-
-	for _, fieldErr := range err {
-		var message string
-		switch fieldErr.Field() {
-		case "FullName":
-			message = "Nome completo do usuário deve ser informado."
-		case "Email":
-			message = "Email deve ser informado e estar em um formato válido."
-		case "Password":
-			if fieldErr.Tag() == "min" {
-				message = "A senha deve ter no mínimo 6 caracteres."
-			} else {
-				message = "A senha é obrigatória."
-			}
-		case "ConfirmPassword":
-			message = "A confirmação de senha deve ser igual à senha."
-		default:
-			message = "Erro no campo " + fieldErr.Field()
-		}
-		messages[fieldErr.Field()] = message
-	}
-	return messages
-}
-
-// Função para criar um novo usuário e validar os dados
-func createUser() {
-	// Exemplo de dados do usuário
-	user := User{
-		FullName:        "", // Nome completo vazio para gerar erro de validação
-		Email:           "john.doe@example.com",
-		Password:        "pass",
-		ConfirmPassword: "pass",
-		CreatedAt:       time.Now().Unix(),
-		UpdatedAt:       time.Now().Unix(),
-	}
-
-	// Instância do validador
+func (r RequestData) validateData() error {
 	validate := validator.New()
 
-	// Validação dos dados do usuário
-	err := validate.Struct(user)
+	ptLocale := pt.New()
+	uni := ut.New(ptLocale, ptLocale)
+	translator, _ := uni.GetTranslator("pt")
+	_ = pt_translations.RegisterDefaultTranslations(validate, translator)
+
+	var validationErrors []string
+	err := validate.Struct(r)
 	if err != nil {
-		// Obter mensagens de erro personalizadas
-		validationErrors := getErrorMessages(err.(validator.ValidationErrors))
-		for field, message := range validationErrors {
-			fmt.Printf("Erro no campo '%s': %s\n", field, message)
+		for _, err := range err.(validator.ValidationErrors) {
+			validationErrors = append(validationErrors, err.Translate(translator))
 		}
-	} else {
-		fmt.Println("Dados do usuário são válidos:", user)
 	}
+
+	if len(validationErrors) > 0 {
+		return errors.New("Erros de validação: " + strings.Join(validationErrors, ", "))
+	}
+	return nil
 }
 
 func main() {
-	createUser()
+	requestData := []RequestData{
+		{
+			CnpjAdministradora: "12345678000195",
+			CnpjRemetente:      "12345678000195",
+			CnpjFornecedor:     "12345678000195",
+			CnpjCondominio:     "12345678000195",
+			TipoInscrCondo:     "J",
+			TipoInscrFornec:    "J",
+			Ano:                2019,
+			Mes:                11,
+			RazaoSocial:        "ZINCA",
+			Produto:            "Nome do produto",
+			Valor:              3699.55,
+			Vencimento:         "12/30/2018",
+		},
+	}
+
+	for _, data := range requestData {
+		if err := data.validateData(); err != nil {
+			fmt.Printf("Erro de validação: %v\n", err)
+			return
+		}
+	}
+
+	fmt.Println("Dados validados com sucesso!")
 }
