@@ -2,6 +2,54 @@ package money
 
 import "testing"
 
+func TestParseMoneyIntToString(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    int64
+		expected string
+	}{
+		{
+			name:     "Zero value",
+			input:    0,
+			expected: "R$ 0,00",
+		},
+		{
+			name:     "Positive value with no cents",
+			input:    12345600,
+			expected: "R$ 123.456,00",
+		},
+		{
+			name:     "Positive value with cents",
+			input:    12345678,
+			expected: "R$ 123.456,78",
+		},
+		{
+			name:     "Small value with cents",
+			input:    50,
+			expected: "R$ 0,50",
+		},
+		{
+			name:     "Negative value with no cents",
+			input:    -12345600,
+			expected: "R$ -123.456,00",
+		},
+		{
+			name:     "Negative value with cents",
+			input:    -12345678,
+			expected: "R$ -123.456,78",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := ParseMoneyIntToString(tt.input)
+			if got != tt.expected {
+				t.Errorf("ParseMoneyIntToString(%d) = %q; want %q", tt.input, got, tt.expected)
+			}
+		})
+	}
+}
+
 func TestParseMoneyStringToFloatSuccess(t *testing.T) {
 	t.Parallel()
 
