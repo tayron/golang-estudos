@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swagger UI</title>
+  <!-- Swagger UI Stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui.css" >
+</head>
+<body>
+  <div id="swagger-ui"></div>
+
+  <!-- Swagger UI JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.15.5/swagger-ui-standalone-preset.js"></script>
+  
+  <script>
+    const ui = SwaggerUIBundle({
+      url: "/static/swagger.json",  // URL para o arquivo swagger.json
+      dom_id: '#swagger-ui', // ID do elemento onde o Swagger UI será renderizado
+      deepLinking: true,
+      presets: [
+        SwaggerUIBundle.presets.apis,
+        SwaggerUIBundle.presets.model
+      ],
+      layout: "BaseLayout"
+    });
+  </script>
+</body>
+</html>
