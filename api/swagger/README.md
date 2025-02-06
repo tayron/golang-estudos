@@ -8,3 +8,7 @@ onde há o arquivo index.html que irá usar swagger-ui para carregar o arquivo s
 ```sh
 docker-compose up --build --remove-orphan
 ```
+
+## Exemplo
+
+![Texto alternativo](./print.png)
