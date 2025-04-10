@@ -1,1 +1,0 @@
-ALTER TABLE clients DROP COLUMN data_nascimento;

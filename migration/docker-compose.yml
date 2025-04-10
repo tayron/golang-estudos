@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  migration-qa:
+    container_name: migration-qa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/app
+    environment:
+      MYSQL_USER: andre.ribeiro
+      MYSQL_PASSWORD: 3E:hI_1Rm?ErAK.m
+      MYSQL_HOST: 104.197.50.250
+      MYSQL_PORT: 3306
+      DATABASE_NAME: beneficiofacilqa
+    command: ["sh", "-c", "./scripts/migrate-run.sh && tail -f /dev/null"]     
