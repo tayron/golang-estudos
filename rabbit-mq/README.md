@@ -3,6 +3,8 @@ Para saber o que é Rabbit MQ assista o vídeo [RabbitMQ (Mensageria Robusta pro
 ](https://www.youtube.com/watch?v=_Uo14nxB_iA)
 Referência: [https://x-team.com/blog/set-up-rabbitmq-with-docker-compose](https://x-team.com/blog/set-up-rabbitmq-with-docker-compose)
 
+[Try RabbitMQ](https://tryrabbitmq.com/) - Ferramenta online para testar arquitetura 
+
 
 ## Subindo container Docker com Rabbit MQ
 ```sh
