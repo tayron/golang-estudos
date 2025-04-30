@@ -28,11 +28,11 @@ make sonarqube-scan
 
 O comando acima irá executar o seguinte comando que deverá ser configurado dentro do Makefile:
 ```sh
-	@docker run --rm \
-		-v "$$(pwd):/usr/src" \
-		--network="sonarqube-network \
-		-e SONAR_HOST_URL="http://sonarqube:9000" \
-		-e SONAR_SCANNER_OPTS="-Dsonar.projectKey=PROJECT-KEY" \
-		-e SONAR_TOKEN="PROJECT-TOKEN" \
-		sonarsource/sonar-scanner-cli
+docker run --rm \
+	-v "$$(pwd):/usr/src" \
+	--network="sonarqube-network \
+	-e SONAR_HOST_URL="http://sonarqube:9000" \
+	-e SONAR_SCANNER_OPTS="-Dsonar.projectKey=PROJECT-KEY" \
+	-e SONAR_TOKEN="PROJECT-TOKEN" \
+	sonarsource/sonar-scanner-cli
 ```
