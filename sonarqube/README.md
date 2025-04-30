@@ -1,7 +1,7 @@
 
-# Sonar Cube Community
+# Sonar qube Community
 
-Para rodar o Sonar cube, no linux deve-se realizar a seguinte configuração:
+Para rodar o Sonar qube, no linux deve-se realizar a seguinte configuração:
 Abrir o arquivo ```/etc/sysctl.conf ``` e adicionar a seguinte informação no final do arquivo:
 ```sh
 vm.max_map_count=262144
@@ -12,12 +12,12 @@ Logo em seguida executar o comadno:
 /sbin/sysctl -p
 ```
 
-Para subir o Sonar Cube localmente deve-se executar o comando:
+Para subir o Sonar Qube localmente deve-se executar o comando:
 ```sh
 docker-compose up --build -d
 ```
 
-Em seguida acesse: http://0.0.0.0:9001/, usuário e senha padrão do Sonarcube:
+Em seguida acesse: http://0.0.0.0:9001/, usuário e senha padrão do Sonarqube:
 * Usuário: **admin** 
 * Senha: **admin**
 
