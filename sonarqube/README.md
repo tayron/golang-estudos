@@ -1,5 +1,6 @@
-
 # Sonar qube Community
+
+![Print do sonarqube](sonarqube.png)
 
 Para rodar o Sonar qube, no linux deve-se realizar a seguinte configuração:
 Abrir o arquivo ```/etc/sysctl.conf ``` e adicionar a seguinte informação no final do arquivo:
