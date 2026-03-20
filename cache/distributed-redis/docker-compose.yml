@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: cache-distributed-redis
+    ports:
+      - "6379:6379"
