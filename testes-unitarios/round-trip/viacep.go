@@ -1,4 +1,4 @@
-package roundtripper
+package roundtrip
 
 import (
 	"encoding/json"

@@ -1,4 +1,4 @@
-package roundtripper_test
+package roundtrip_test
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"strings"
 	"testing"
 
-	roundtripper "github.com/tayron/golang-estudos/testes-unitarios/round-tripper"
+	roundtrip "github.com/tayron/golang-estudos/testes-unitarios/round-trip"
 )
 
 type roundTripFunc func(*http.Request) (*http.Response, error)
@@ -53,7 +53,7 @@ func TestSearchCEP(t *testing.T) {
 			}),
 		}
 
-		address, err := roundtripper.SearchCEP(client, cep)
+		address, err := roundtrip.SearchCEP(client, cep)
 		if err != nil {
 			t.Fatalf("expected error nil but got: '%s'", err.Error())
 		}
