@@ -47,7 +47,7 @@ func TestSearchCEP(t *testing.T) {
 				}`
 
 				return &http.Response{
-					StatusCode: 200,
+					StatusCode: http.StatusOK,
 					Body:       io.NopCloser(strings.NewReader(body)),
 				}, nil
 			}),
