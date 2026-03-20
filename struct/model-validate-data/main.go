@@ -1,14 +1,14 @@
 package main
 
 import (
-	"errors"
 	"fmt"
+	"reflect"
 	"strings"
 
 	"github.com/go-playground/locales/pt"
 	ut "github.com/go-playground/universal-translator"
 	"github.com/go-playground/validator/v10"
-	pt_translations "github.com/go-playground/validator/v10/translations/pt"
+	ptTranslations "github.com/go-playground/validator/v10/translations/pt"
 )
 
 type RequestData struct {
@@ -23,55 +23,111 @@ type RequestData struct {
 	RazaoSocial        string  `json:"razao_social" validate:"required,max=100"`
 	Produto            string  `json:"produto" validate:"required,max=100"`
 	Valor              float64 `json:"valor" validate:"required,gt=0"`
-	Vencimento         string  `json:"vencimento" validate:"required,datetime=01/02/2006"`
+	Vencimento         string  `json:"vencimento" validate:"required,datetime=02/01/2006"`
 }
 
-func (r RequestData) validateData() error {
+type RequestValidator struct {
+	validate   *validator.Validate
+	translator ut.Translator
+}
+
+func NewRequestValidator() (*RequestValidator, error) {
 	validate := validator.New()
+	validate.RegisterTagNameFunc(func(field reflect.StructField) string {
+		jsonName := strings.Split(field.Tag.Get("json"), ",")[0]
+		if jsonName == "" || jsonName == "-" {
+			return field.Name
+		}
+		return jsonName
+	})
 
 	ptLocale := pt.New()
 	uni := ut.New(ptLocale, ptLocale)
-	translator, _ := uni.GetTranslator("pt")
-	_ = pt_translations.RegisterDefaultTranslations(validate, translator)
-
-	var validationErrors []string
-	err := validate.Struct(r)
-	if err != nil {
-		for _, err := range err.(validator.ValidationErrors) {
-			validationErrors = append(validationErrors, err.Translate(translator))
-		}
+	translator, found := uni.GetTranslator("pt")
+	if !found {
+		return nil, fmt.Errorf("tradutor pt nao encontrado")
 	}
 
-	if len(validationErrors) > 0 {
-		return errors.New("Erros de validação: " + strings.Join(validationErrors, ", "))
+	if err := ptTranslations.RegisterDefaultTranslations(validate, translator); err != nil {
+		return nil, err
 	}
-	return nil
+
+	return &RequestValidator{
+		validate:   validate,
+		translator: translator,
+	}, nil
+}
+
+func (rv *RequestValidator) Validate(data RequestData) []string {
+	err := rv.validate.Struct(data)
+	if err == nil {
+		return nil
+	}
+
+	validationErrors, ok := err.(validator.ValidationErrors)
+	if !ok {
+		return []string{err.Error()}
+	}
+
+	errors := make([]string, 0, len(validationErrors))
+	for _, validationErr := range validationErrors {
+		errors = append(errors, validationErr.Translate(rv.translator))
+	}
+
+	return errors
 }
 
 func main() {
-	requestData := []RequestData{
+	validatorInstance, err := NewRequestValidator()
+	if err != nil {
+		panic(err)
+	}
+
+	requests := []RequestData{
 		{
 			CnpjAdministradora: "12345678000195",
 			CnpjRemetente:      "12345678000195",
 			CnpjFornecedor:     "12345678000195",
 			CnpjCondominio:     "12345678000195",
 			TipoInscrCondo:     "J",
-			TipoInscrFornec:    "J",
-			Ano:                2019,
+			TipoInscrFornec:    "F",
+			Ano:                2024,
 			Mes:                11,
 			RazaoSocial:        "ZINCA",
 			Produto:            "Nome do produto",
 			Valor:              3699.55,
-			Vencimento:         "12/30/2018",
+			Vencimento:         "30/12/2024",
+		},
+		{
+			CnpjAdministradora: "123",
+			CnpjRemetente:      "abcdefghijklmn",
+			CnpjFornecedor:     "",
+			CnpjCondominio:     "12345678000195",
+			TipoInscrCondo:     "X",
+			TipoInscrFornec:    "J",
+			Ano:                1800,
+			Mes:                13,
+			RazaoSocial:        "",
+			Produto:            "Nome do produto",
+			Valor:              0,
+			Vencimento:         "12/30/2024",
 		},
 	}
 
-	for _, data := range requestData {
-		if err := data.validateData(); err != nil {
-			fmt.Printf("Erro de validação: %v\n", err)
-			return
-		}
-	}
+	for index, data := range requests {
+		fmt.Printf("Validando payload %d\n", index+1)
 
-	fmt.Println("Dados validados com sucesso!")
+		errors := validatorInstance.Validate(data)
+		if len(errors) == 0 {
+			fmt.Println("dados validados com sucesso")
+			fmt.Println()
+			continue
+		}
+
+		fmt.Println("erros encontrados:")
+		for _, validationError := range errors {
+			fmt.Printf("- %s\n", validationError)
+		}
+		fmt.Println()
+	}
 }
