@@ -1,18 +1,27 @@
-package main
+package mockinterface
 
-import (
-	"fmt"
+import "fmt"
 
-	"github.com/tayron/golang-estudos/testes-unitarios/mock/mock-interface/entity"
-)
+type Notificador interface {
+	Enviar(mensagem string) error
+}
 
-func main() {
-	calculadora := entity.Calculadora{}
-	calculadora.Somar(10, 5)
+type ServicoBoasVindas struct {
+	notificador Notificador
+}
 
-	fmt.Println(calculadora.Resultado)
+func NewServicoBoasVindas(notificador Notificador) ServicoBoasVindas {
+	return ServicoBoasVindas{notificador: notificador}
+}
 
-	calculadoraMock = entity.CalculadoraMock{}
-	calculadora.Somar(10, 5)
-	fmt.Println(calculadora.Resultado)
+func (s ServicoBoasVindas) BoasVindas(nome string) error {
+	mensagem := fmt.Sprintf("Bem-vindo, %s!", nome)
+	return s.notificador.Enviar(mensagem)
+}
+
+type NotificadorConsole struct{}
+
+func (NotificadorConsole) Enviar(mensagem string) error {
+	fmt.Println(mensagem)
+	return nil
 }
