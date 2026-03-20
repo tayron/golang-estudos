@@ -17,7 +17,8 @@ func (f roundTripFunc) RoundTrip(req *http.Request) (*http.Response, error) {
 }
 
 func TestSearchCEP(t *testing.T) {
-	cep := "76873544"
+	cep := "01001000"
+
 	t.Run("Teste consulta com sucesso", func(t *testing.T) {
 		client := &http.Client{
 			Transport: roundTripFunc(func(req *http.Request) (*http.Response, error) {
@@ -54,11 +55,11 @@ func TestSearchCEP(t *testing.T) {
 
 		address, err := roundtripper.SearchCEP(client, cep)
 		if err != nil {
-			t.Errorf("expected error nil but got: '%s'", err.Error())
+			t.Fatalf("expected error nil but got: '%s'", err.Error())
 		}
 
 		if address.Logradouro != "Praça da Sé" {
-			t.Errorf("Excepcted logradouro 'Praça da Sé' but got: '%s'", address.Logradouro)
+			t.Errorf("Expected logradouro 'Praça da Sé' but got: '%s'", address.Logradouro)
 		}
 	})
 
