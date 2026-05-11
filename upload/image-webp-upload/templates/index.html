@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Upload WebP Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            color: #222;
+        }
+
+        form {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        button {
+            cursor: pointer;
+            padding: 8px 14px;
+        }
+
+        .message {
+            border-radius: 6px;
+            margin: 16px 0;
+            padding: 12px 14px;
+        }
+
+        .message.success {
+            background: #e8f6ee;
+            border: 1px solid #9ed4b3;
+            color: #1c6b38;
+        }
+
+        .message.error {
+            background: #fdecec;
+            border: 1px solid #eca5a5;
+            color: #8f1d1d;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+        }
+
+        .gallery figure {
+            margin: 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        .gallery figcaption {
+            margin-top: 6px;
+            overflow-wrap: anywhere;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .empty {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Upload Image</h2>
+
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="image" required />
+    <button type="submit">Upload</button>
+</form>
+
+{{if .Message}}
+<div class="message {{.MessageType}}">{{.Message}}</div>
+{{end}}
+
+<h2>Gallery</h2>
+<div class="gallery">
+    {{range .Images}}
+    <figure>
+        <a href="{{.URL}}" target="_blank" rel="noopener noreferrer">
+            <img src="{{.URL}}" alt="{{.Name}}">
+        </a>
+        <figcaption>{{.Name}}</figcaption>
+    </figure>
+    {{else}}
+    <p class="empty">Nenhuma imagem enviada ainda.</p>
+    {{end}}
+</div>
+
+</body>
+</html>
